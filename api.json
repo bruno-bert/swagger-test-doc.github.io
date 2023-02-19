@@ -1,0 +1,4343 @@
+
+{
+    "openapi": "3.0.0",
+    "paths": {
+      "/api/users": {
+        "post": {
+          "operationId": "UserController_create",
+          "parameters": [
+            
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCreateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "users"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "get": {
+          "operationId": "UserController_findMany",
+          "parameters": [
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/UserWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "users"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/users/{id}": {
+        "get": {
+          "operationId": "UserController_findOne",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "users"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "UserController_update",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserUpdateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "users"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "UserController_delete",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "users"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/login": {
+        "post": {
+          "operationId": "AuthController_login",
+          "parameters": [
+            
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Credentials"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "auth"
+          ]
+        }
+      },
+      "/api/countries": {
+        "post": {
+          "operationId": "CountryController_create",
+          "parameters": [
+            
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountryCreateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Country"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "get": {
+          "operationId": "CountryController_findMany",
+          "parameters": [
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/CountryWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Country"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/countries/{id}": {
+        "get": {
+          "operationId": "CountryController_findOne",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Country"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "CountryController_update",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountryUpdateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Country"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "CountryController_delete",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Country"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/countries/{id}/caseEvents": {
+        "get": {
+          "operationId": "CountryController_findManyCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/CaseEventWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "post": {
+          "operationId": "CountryController_connectCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "CountryController_updateCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "CountryController_disconnectCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/countries/{id}/countryRules": {
+        "get": {
+          "operationId": "CountryController_findManyCountryRules",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/CountryRuleWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "post": {
+          "operationId": "CountryController_connectCountryRules",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "CountryController_updateCountryRules",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "CountryController_disconnectCountryRules",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "countries"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/countryRules": {
+        "post": {
+          "operationId": "CountryRuleController_create",
+          "parameters": [
+            
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountryRuleCreateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CountryRule"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "countryRules"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "get": {
+          "operationId": "CountryRuleController_findMany",
+          "parameters": [
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/CountryRuleWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CountryRule"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "countryRules"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/countryRules/{id}": {
+        "get": {
+          "operationId": "CountryRuleController_findOne",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CountryRule"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "countryRules"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "CountryRuleController_update",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountryRuleUpdateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CountryRule"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "countryRules"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "CountryRuleController_delete",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CountryRule"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "countryRules"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/caseEvents": {
+        "post": {
+          "operationId": "CaseEventController_create",
+          "parameters": [
+            
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseEventCreateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CaseEvent"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "caseEvents"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "get": {
+          "operationId": "CaseEventController_findMany",
+          "parameters": [
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/CaseEventWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CaseEvent"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "caseEvents"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/caseEvents/{id}": {
+        "get": {
+          "operationId": "CaseEventController_findOne",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CaseEvent"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "caseEvents"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "CaseEventController_update",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseEventUpdateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CaseEvent"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "caseEvents"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "CaseEventController_delete",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CaseEvent"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "caseEvents"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/caseEvents/{id}/caseEventAlerts": {
+        "get": {
+          "operationId": "CaseEventController_findManyCaseEventAlerts",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/CaseEventAlertWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "caseEvents"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "post": {
+          "operationId": "CaseEventController_connectCaseEventAlerts",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "caseEvents"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "CaseEventController_updateCaseEventAlerts",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "caseEvents"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "CaseEventController_disconnectCaseEventAlerts",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "caseEvents"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/caseEventAlerts": {
+        "post": {
+          "operationId": "CaseEventAlertController_create",
+          "parameters": [
+            
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseEventAlertCreateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CaseEventAlert"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "caseEventAlerts"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "get": {
+          "operationId": "CaseEventAlertController_findMany",
+          "parameters": [
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/CaseEventAlertWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CaseEventAlert"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "caseEventAlerts"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/caseEventAlerts/{id}": {
+        "get": {
+          "operationId": "CaseEventAlertController_findOne",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CaseEventAlert"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "caseEventAlerts"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "CaseEventAlertController_update",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseEventAlertUpdateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CaseEventAlert"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "caseEventAlerts"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "CaseEventAlertController_delete",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/CaseEventAlert"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "caseEventAlerts"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/people": {
+        "post": {
+          "operationId": "PersonController_create",
+          "parameters": [
+            
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonCreateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Person"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "people"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "get": {
+          "operationId": "PersonController_findMany",
+          "parameters": [
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/PersonWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Person"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "people"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/people/{id}": {
+        "get": {
+          "operationId": "PersonController_findOne",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Person"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "people"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "PersonController_update",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonUpdateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Person"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "people"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "PersonController_delete",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Person"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "people"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/people/{id}/caseEvents": {
+        "get": {
+          "operationId": "PersonController_findManyCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/CaseEventWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "people"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "post": {
+          "operationId": "PersonController_connectCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "people"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "PersonController_updateCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "people"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "PersonController_disconnectCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "people"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/products": {
+        "post": {
+          "operationId": "ProductController_create",
+          "parameters": [
+            
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductCreateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "products"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "get": {
+          "operationId": "ProductController_findMany",
+          "parameters": [
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/ProductWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Product"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "products"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/products/{id}": {
+        "get": {
+          "operationId": "ProductController_findOne",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "products"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "ProductController_update",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductUpdateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "products"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "ProductController_delete",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ForbiddenException"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/NotFoundException"
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "products"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/products/{id}/caseEvents": {
+        "get": {
+          "operationId": "ProductController_findManyCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "where",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/CaseEventWhereInput"
+              }
+            },
+            {
+              "name": "orderBy",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "$ref": "#/components/schemas/Array"
+              }
+            },
+            {
+              "name": "skip",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "take",
+              "required": false,
+              "in": "query",
+              "style": "deepObject",
+              "explode": true,
+              "schema": {
+                "type": "number"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "products"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "post": {
+          "operationId": "ProductController_connectCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "products"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "patch": {
+          "operationId": "ProductController_updateCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "products"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        },
+        "delete": {
+          "operationId": "ProductController_disconnectCaseEvents",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "products"
+          ],
+          "security": [
+            {
+              "bearer": [
+                
+              ]
+            }
+          ]
+        }
+      },
+      "/api/_health/live": {
+        "get": {
+          "operationId": "HealthController_healthLive",
+          "parameters": [
+            
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        }
+      },
+      "/api/_health/ready": {
+        "get": {
+          "operationId": "HealthController_healthReady",
+          "parameters": [
+            
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        }
+      }
+    },
+    "info": {
+      "title": "PVCaseManagement",
+      "description": "Service contains main functionalities of PV Case Management\n- CaseEvent and Alerts generated according to country rule.\n\n## Congratulations! Your service resource is ready.\n  \nPlease note that all endpoints are secured with JWT Bearer authentication.\nBy default, your service resource comes with one user with the username \"admin\" and password \"admin\".\nLearn more in [our docs](https://docs.amplication.com)",
+      "version": "bpyrxj68",
+      "contact": {
+        
+      }
+    },
+    "tags": [
+      
+    ],
+    "servers": [
+      
+    ],
+    "components": {
+      "securitySchemes": {
+        "bearer": {
+          "scheme": "bearer",
+          "bearerFormat": "JWT",
+          "type": "http"
+        }
+      },
+      "schemas": {
+        "UserCreateInput": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            },
+            "roles": {
+              "type": "object"
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "password",
+            "roles",
+            "username"
+          ]
+        },
+        "User": {
+          "type": "object",
+          "properties": {
+            "createdAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "roles": {
+              "type": "object"
+            },
+            "updatedAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "username": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "createdAt",
+            "id",
+            "roles",
+            "updatedAt",
+            "username"
+          ]
+        },
+        "ForbiddenException": {
+          "type": "object",
+          "properties": {
+            "statusCode": {
+              "type": "number"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "statusCode",
+            "message"
+          ]
+        },
+        "StringNullableFilter": {
+          "type": "object",
+          "properties": {
+            "equals": {
+              "type": "string"
+            },
+            "in": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "notIn": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "lt": {
+              "type": "string"
+            },
+            "lte": {
+              "type": "string"
+            },
+            "gt": {
+              "type": "string"
+            },
+            "gte": {
+              "type": "string"
+            },
+            "contains": {
+              "type": "string"
+            },
+            "startsWith": {
+              "type": "string"
+            },
+            "endsWith": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "Default",
+                "Insensitive"
+              ]
+            },
+            "not": {
+              "type": "string"
+            }
+          }
+        },
+        "StringFilter": {
+          "type": "object",
+          "properties": {
+            "equals": {
+              "type": "string"
+            },
+            "in": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "notIn": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "lt": {
+              "type": "string"
+            },
+            "lte": {
+              "type": "string"
+            },
+            "gt": {
+              "type": "string"
+            },
+            "gte": {
+              "type": "string"
+            },
+            "contains": {
+              "type": "string"
+            },
+            "startsWith": {
+              "type": "string"
+            },
+            "endsWith": {
+              "type": "string"
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "Default",
+                "Insensitive"
+              ]
+            },
+            "not": {
+              "type": "string"
+            }
+          }
+        },
+        "UserWhereInput": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "$ref": "#/components/schemas/StringNullableFilter"
+            },
+            "id": {
+              "$ref": "#/components/schemas/StringFilter"
+            },
+            "lastName": {
+              "$ref": "#/components/schemas/StringNullableFilter"
+            },
+            "username": {
+              "$ref": "#/components/schemas/StringFilter"
+            }
+          }
+        },
+        "Array": {
+          "type": "object",
+          "properties": {
+            
+          }
+        },
+        "Number": {
+          "type": "object",
+          "properties": {
+            
+          }
+        },
+        "NotFoundException": {
+          "type": "object",
+          "properties": {
+            "statusCode": {
+              "type": "number"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "statusCode",
+            "message"
+          ]
+        },
+        "UserUpdateInput": {
+          "type": "object",
+          "properties": {
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            },
+            "roles": {
+              "type": "object"
+            },
+            "username": {
+              "type": "string"
+            }
+          }
+        },
+        "Credentials": {
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "username",
+            "password"
+          ]
+        },
+        "CaseEventWhereUniqueInput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "CaseEventCreateNestedManyWithoutCountriesInput": {
+          "type": "object",
+          "properties": {
+            "connect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            }
+          }
+        },
+        "CountryRuleWhereUniqueInput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "CountryRuleCreateNestedManyWithoutCountriesInput": {
+          "type": "object",
+          "properties": {
+            "connect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CountryRuleWhereUniqueInput"
+              }
+            }
+          }
+        },
+        "CountryCreateInput": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "$ref": "#/components/schemas/CaseEventCreateNestedManyWithoutCountriesInput"
+            },
+            "countryRules": {
+              "$ref": "#/components/schemas/CountryRuleCreateNestedManyWithoutCountriesInput"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "CaseEventAlert": {
+          "type": "object",
+          "properties": {
+            "caseId": {
+              "$ref": "#/components/schemas/CaseEvent"
+            },
+            "createdAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "dueDate": {
+              "type": "object"
+            },
+            "endDate": {
+              "type": "object"
+            },
+            "id": {
+              "type": "string"
+            },
+            "startDate": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "OPEN",
+                "PROGRESS",
+                "CLOSED"
+              ]
+            },
+            "updatedAt": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "createdAt",
+            "id",
+            "startDate",
+            "updatedAt"
+          ]
+        },
+        "CountryRule": {
+          "type": "object",
+          "properties": {
+            "country": {
+              "$ref": "#/components/schemas/Country"
+            },
+            "createdAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "rule": {
+              "type": "object"
+            },
+            "updatedAt": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "createdAt",
+            "id",
+            "updatedAt"
+          ]
+        },
+        "Country": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEvent"
+              }
+            },
+            "countryRules": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CountryRule"
+              }
+            },
+            "createdAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "createdAt",
+            "id",
+            "updatedAt"
+          ]
+        },
+        "Person": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEvent"
+              }
+            },
+            "contact": {
+              "type": "string"
+            },
+            "createdAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "fullName": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "createdAt",
+            "id",
+            "updatedAt"
+          ]
+        },
+        "Product": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEvent"
+              }
+            },
+            "createdAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "createdAt",
+            "id",
+            "updatedAt"
+          ]
+        },
+        "CaseEvent": {
+          "type": "object",
+          "properties": {
+            "caseEventAlerts": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventAlert"
+              }
+            },
+            "country": {
+              "$ref": "#/components/schemas/Country"
+            },
+            "createdAt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "criticity": {
+              "type": "string",
+              "enum": [
+                "HIGH",
+                "MEDIUM",
+                "LOW"
+              ]
+            },
+            "description": {
+              "type": "string"
+            },
+            "firstContactDate": {
+              "type": "object"
+            },
+            "id": {
+              "type": "string"
+            },
+            "person": {
+              "$ref": "#/components/schemas/Person"
+            },
+            "product": {
+              "$ref": "#/components/schemas/Product"
+            },
+            "updatedAt": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "required": [
+            "country",
+            "createdAt",
+            "id",
+            "updatedAt"
+          ]
+        },
+        "DateTimeNullableFilter": {
+          "type": "object",
+          "properties": {
+            "equals": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "in": {
+              "type": "array",
+              "items": {
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "notIn": {
+              "type": "array",
+              "items": {
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "lt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "lte": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "gt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "gte": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "not": {
+              "format": "date-time",
+              "type": "string"
+            }
+          }
+        },
+        "DateTimeFilter": {
+          "type": "object",
+          "properties": {
+            "equals": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "not": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "in": {
+              "type": "array",
+              "items": {
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "notIn": {
+              "type": "array",
+              "items": {
+                "format": "date-time",
+                "type": "string"
+              }
+            },
+            "lt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "lte": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "gt": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "gte": {
+              "format": "date-time",
+              "type": "string"
+            }
+          }
+        },
+        "CaseEventAlertWhereInput": {
+          "type": "object",
+          "properties": {
+            "caseId": {
+              "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+            },
+            "dueDate": {
+              "$ref": "#/components/schemas/DateTimeNullableFilter"
+            },
+            "endDate": {
+              "$ref": "#/components/schemas/DateTimeNullableFilter"
+            },
+            "id": {
+              "$ref": "#/components/schemas/StringFilter"
+            },
+            "startDate": {
+              "$ref": "#/components/schemas/DateTimeFilter"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "OPEN",
+                "PROGRESS",
+                "CLOSED"
+              ]
+            }
+          }
+        },
+        "CaseEventAlertListRelationFilter": {
+          "type": "object",
+          "properties": {
+            "every": {
+              "$ref": "#/components/schemas/CaseEventAlertWhereInput"
+            },
+            "some": {
+              "$ref": "#/components/schemas/CaseEventAlertWhereInput"
+            },
+            "none": {
+              "$ref": "#/components/schemas/CaseEventAlertWhereInput"
+            }
+          }
+        },
+        "CountryWhereUniqueInput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "PersonWhereUniqueInput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "ProductWhereUniqueInput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "CaseEventWhereInput": {
+          "type": "object",
+          "properties": {
+            "caseEventAlerts": {
+              "$ref": "#/components/schemas/CaseEventAlertListRelationFilter"
+            },
+            "country": {
+              "$ref": "#/components/schemas/CountryWhereUniqueInput"
+            },
+            "criticity": {
+              "type": "string",
+              "enum": [
+                "HIGH",
+                "MEDIUM",
+                "LOW"
+              ]
+            },
+            "description": {
+              "$ref": "#/components/schemas/StringNullableFilter"
+            },
+            "firstContactDate": {
+              "$ref": "#/components/schemas/DateTimeNullableFilter"
+            },
+            "id": {
+              "$ref": "#/components/schemas/StringFilter"
+            },
+            "person": {
+              "$ref": "#/components/schemas/PersonWhereUniqueInput"
+            },
+            "product": {
+              "$ref": "#/components/schemas/ProductWhereUniqueInput"
+            }
+          }
+        },
+        "CaseEventListRelationFilter": {
+          "type": "object",
+          "properties": {
+            "every": {
+              "$ref": "#/components/schemas/CaseEventWhereInput"
+            },
+            "some": {
+              "$ref": "#/components/schemas/CaseEventWhereInput"
+            },
+            "none": {
+              "$ref": "#/components/schemas/CaseEventWhereInput"
+            }
+          }
+        },
+        "JsonFilter": {
+          "type": "object",
+          "properties": {
+            "equals": {
+              "$ref": "#/components/schemas/"
+            },
+            "not": {
+              "$ref": "#/components/schemas/"
+            }
+          }
+        },
+        "CountryRuleWhereInput": {
+          "type": "object",
+          "properties": {
+            "country": {
+              "$ref": "#/components/schemas/CountryWhereUniqueInput"
+            },
+            "id": {
+              "$ref": "#/components/schemas/StringFilter"
+            },
+            "rule": {
+              "$ref": "#/components/schemas/JsonFilter"
+            }
+          }
+        },
+        "CountryRuleListRelationFilter": {
+          "type": "object",
+          "properties": {
+            "every": {
+              "$ref": "#/components/schemas/CountryRuleWhereInput"
+            },
+            "some": {
+              "$ref": "#/components/schemas/CountryRuleWhereInput"
+            },
+            "none": {
+              "$ref": "#/components/schemas/CountryRuleWhereInput"
+            }
+          }
+        },
+        "CountryWhereInput": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "$ref": "#/components/schemas/CaseEventListRelationFilter"
+            },
+            "countryRules": {
+              "$ref": "#/components/schemas/CountryRuleListRelationFilter"
+            },
+            "id": {
+              "$ref": "#/components/schemas/StringFilter"
+            },
+            "name": {
+              "$ref": "#/components/schemas/StringNullableFilter"
+            }
+          }
+        },
+        "CaseEventUpdateManyWithoutCountriesInput": {
+          "type": "object",
+          "properties": {
+            "connect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            },
+            "disconnect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            },
+            "set": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            }
+          }
+        },
+        "CountryRuleUpdateManyWithoutCountriesInput": {
+          "type": "object",
+          "properties": {
+            "connect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CountryRuleWhereUniqueInput"
+              }
+            },
+            "disconnect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CountryRuleWhereUniqueInput"
+              }
+            },
+            "set": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CountryRuleWhereUniqueInput"
+              }
+            }
+          }
+        },
+        "CountryUpdateInput": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "$ref": "#/components/schemas/CaseEventUpdateManyWithoutCountriesInput"
+            },
+            "countryRules": {
+              "$ref": "#/components/schemas/CountryRuleUpdateManyWithoutCountriesInput"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "CountryRuleCreateInput": {
+          "type": "object",
+          "properties": {
+            "country": {
+              "$ref": "#/components/schemas/CountryWhereUniqueInput"
+            },
+            "rule": {
+              "type": "object"
+            }
+          }
+        },
+        "CountryRuleUpdateInput": {
+          "type": "object",
+          "properties": {
+            "country": {
+              "$ref": "#/components/schemas/CountryWhereUniqueInput"
+            },
+            "rule": {
+              "type": "object"
+            }
+          }
+        },
+        "CaseEventAlertWhereUniqueInput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "CaseEventAlertCreateNestedManyWithoutCaseEventsInput": {
+          "type": "object",
+          "properties": {
+            "connect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventAlertWhereUniqueInput"
+              }
+            }
+          }
+        },
+        "CaseEventCreateInput": {
+          "type": "object",
+          "properties": {
+            "caseEventAlerts": {
+              "$ref": "#/components/schemas/CaseEventAlertCreateNestedManyWithoutCaseEventsInput"
+            },
+            "country": {
+              "$ref": "#/components/schemas/CountryWhereUniqueInput"
+            },
+            "criticity": {
+              "type": "string",
+              "enum": [
+                "HIGH",
+                "MEDIUM",
+                "LOW"
+              ]
+            },
+            "description": {
+              "type": "string"
+            },
+            "firstContactDate": {
+              "type": "object"
+            },
+            "person": {
+              "$ref": "#/components/schemas/PersonWhereUniqueInput"
+            },
+            "product": {
+              "$ref": "#/components/schemas/ProductWhereUniqueInput"
+            }
+          },
+          "required": [
+            "country"
+          ]
+        },
+        "CaseEventAlertUpdateManyWithoutCaseEventsInput": {
+          "type": "object",
+          "properties": {
+            "connect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventAlertWhereUniqueInput"
+              }
+            },
+            "disconnect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventAlertWhereUniqueInput"
+              }
+            },
+            "set": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventAlertWhereUniqueInput"
+              }
+            }
+          }
+        },
+        "CaseEventUpdateInput": {
+          "type": "object",
+          "properties": {
+            "caseEventAlerts": {
+              "$ref": "#/components/schemas/CaseEventAlertUpdateManyWithoutCaseEventsInput"
+            },
+            "country": {
+              "$ref": "#/components/schemas/CountryWhereUniqueInput"
+            },
+            "criticity": {
+              "type": "string",
+              "enum": [
+                "HIGH",
+                "MEDIUM",
+                "LOW"
+              ]
+            },
+            "description": {
+              "type": "string"
+            },
+            "firstContactDate": {
+              "type": "object"
+            },
+            "person": {
+              "$ref": "#/components/schemas/PersonWhereUniqueInput"
+            },
+            "product": {
+              "$ref": "#/components/schemas/ProductWhereUniqueInput"
+            }
+          }
+        },
+        "CaseEventAlertCreateInput": {
+          "type": "object",
+          "properties": {
+            "caseId": {
+              "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+            },
+            "dueDate": {
+              "type": "object"
+            },
+            "endDate": {
+              "type": "object"
+            },
+            "startDate": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "OPEN",
+                "PROGRESS",
+                "CLOSED"
+              ]
+            }
+          },
+          "required": [
+            "startDate"
+          ]
+        },
+        "CaseEventAlertUpdateInput": {
+          "type": "object",
+          "properties": {
+            "caseId": {
+              "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+            },
+            "dueDate": {
+              "type": "object"
+            },
+            "endDate": {
+              "type": "object"
+            },
+            "startDate": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "OPEN",
+                "PROGRESS",
+                "CLOSED"
+              ]
+            }
+          }
+        },
+        "CaseEventCreateNestedManyWithoutPeopleInput": {
+          "type": "object",
+          "properties": {
+            "connect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            }
+          }
+        },
+        "PersonCreateInput": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "$ref": "#/components/schemas/CaseEventCreateNestedManyWithoutPeopleInput"
+            },
+            "contact": {
+              "type": "string"
+            },
+            "fullName": {
+              "type": "string"
+            }
+          }
+        },
+        "PersonWhereInput": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "$ref": "#/components/schemas/CaseEventListRelationFilter"
+            },
+            "contact": {
+              "$ref": "#/components/schemas/StringNullableFilter"
+            },
+            "fullName": {
+              "$ref": "#/components/schemas/StringNullableFilter"
+            },
+            "id": {
+              "$ref": "#/components/schemas/StringFilter"
+            }
+          }
+        },
+        "CaseEventUpdateManyWithoutPeopleInput": {
+          "type": "object",
+          "properties": {
+            "connect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            },
+            "disconnect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            },
+            "set": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            }
+          }
+        },
+        "PersonUpdateInput": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "$ref": "#/components/schemas/CaseEventUpdateManyWithoutPeopleInput"
+            },
+            "contact": {
+              "type": "string"
+            },
+            "fullName": {
+              "type": "string"
+            }
+          }
+        },
+        "CaseEventCreateNestedManyWithoutProductsInput": {
+          "type": "object",
+          "properties": {
+            "connect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            }
+          }
+        },
+        "ProductCreateInput": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "$ref": "#/components/schemas/CaseEventCreateNestedManyWithoutProductsInput"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "ProductWhereInput": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "$ref": "#/components/schemas/CaseEventListRelationFilter"
+            },
+            "id": {
+              "$ref": "#/components/schemas/StringFilter"
+            },
+            "name": {
+              "$ref": "#/components/schemas/StringNullableFilter"
+            }
+          }
+        },
+        "CaseEventUpdateManyWithoutProductsInput": {
+          "type": "object",
+          "properties": {
+            "connect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            },
+            "disconnect": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            },
+            "set": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/CaseEventWhereUniqueInput"
+              }
+            }
+          }
+        },
+        "ProductUpdateInput": {
+          "type": "object",
+          "properties": {
+            "caseEvents": {
+              "$ref": "#/components/schemas/CaseEventUpdateManyWithoutProductsInput"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
